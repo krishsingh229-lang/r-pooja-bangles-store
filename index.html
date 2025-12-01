@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R Pooja Bangles Store - Exquisite Meenakari Bangles</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+        
+        nav {
+            background: #2c3e50;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #f39c12;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('https://nyc3.digitaloceanspaces.com/bhindi-drive/files/f6ab36d5-58c8-495a-81f1-78cbaac6ba19/2025-12-01T08-47-18-467Z-e0c158ba-chat-image-1764578838449-0.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+        
+        .hero-content {
+            background: rgba(0,0,0,0.6);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+        }
+        
+        .section {
+            margin: 4rem 0;
+        }
+        
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #667eea;
+        }
+        
+        .featured-image {
+            width: 100%;
+            max-width: 800px;
+            margin: 2rem auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-card h3 {
+            color: #764ba2;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .collections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .collection-item {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+        
+        .collection-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .about {
+            background: #f8f9fa;
+            padding: 3rem;
+            border-radius: 10px;
+            margin: 3rem 0;
+        }
+        
+        .about p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .contact h2 {
+            color: white;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            background: rgba(255,255,255,0.2);
+            padding: 1.5rem;
+            border-radius: 10px;
+            min-width: 250px;
+        }
+        
+        .contact-item h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #f39c12;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #e67e22;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>✨ R Pooja Bangles Store ✨</h1>
+        <p>Exquisite Meenakari & Traditional Bangles</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#collections">Collections</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <div class="hero" id="home">
+        <div class="hero-content">
+            <h2>Handcrafted Beauty</h2>
+            <p>Traditional Meenakari Artistry Since Generations</p>
+            <a href="#contact" class="btn">Shop Now</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <section class="section" id="collections">
+            <h2>Our Stunning Collection</h2>
+            <img src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/f6ab36d5-58c8-495a-81f1-78cbaac6ba19/2025-12-01T08-47-18-467Z-e0c158ba-chat-image-1764578838449-0.jpg" 
+                 alt="Meenakari Bangles Collection" 
+                 class="featured-image">
+            
+            <div class="collections">
+                <div class="collection-item">Royal Blue Collection</div>
+                <div class="collection-item">Pink Floral Series</div>
+                <div class="collection-item">Green Elegance</div>
+                <div class="collection-item">Multicolor Designs</div>
+                <div class="collection-item">Traditional Patterns</div>
+                <div class="collection-item">Bridal Special</div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>Why Choose R Pooja Bangles?</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h3>🎨 Authentic Meenakari</h3>
+                    <p>Traditional hand-enameled designs crafted by skilled artisans using time-honored techniques</p>
+                </div>
+                <div class="feature-card">
+                    <h3>💎 Premium Quality</h3>
+                    <p>High-quality metals and vibrant, long-lasting enamel colors that retain their beauty</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🌸 Unique Designs</h3>
+                    <p>Exclusive floral and geometric patterns inspired by Rajasthani heritage</p>
+                </div>
+                <div class="feature-card">
+                    <h3>✨ Perfect Finish</h3>
+                    <p>Each bangle is meticulously polished and finished to perfection</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="about" id="about">
+            <h2 style="color: #667eea; text-align: center; margin-bottom: 2rem;">About R Pooja Bangles Store</h2>
+            <p>
+                Welcome to R Pooja Bangles Store, where tradition meets elegance. We specialize in authentic 
+                Meenakari bangles, kadas, and bracelets that showcase the rich heritage of Indian craftsmanship.
+            </p>
+            <p>
+                Our collection features handcrafted pieces with intricate enamel work, vibrant colors, and 
+                timeless designs. Each bangle tells a story of skilled artisanship passed down through generations.
+            </p>
+            <p>
+                From everyday wear to special occasions and bridal collections, we offer a wide range of designs 
+                in various colors and patterns. Our meenakari work features traditional floral motifs, geometric 
+                patterns, and contemporary designs that appeal to modern tastes while honoring ancient traditions.
+            </p>
+            <p>
+                <strong>Our Specialties:</strong> Traditional Meenakari Bangles, Kundan Work, Bridal Sets, 
+                Custom Designs, Bulk Orders for Weddings & Events
+            </p>
+        </section>
+        
+        <section class="contact" id="contact">
+            <h2>Get in Touch</h2>
+            <p style="font-size: 1.2rem;">Visit us or contact us for custom orders and bulk inquiries</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>📍 Visit Our Store</h3>
+                    <p>R Pooja Bangles Store<br>
+                    [Your Address Here]<br>
+                    [City, State, PIN]</p>
+                </div>
+                <div class="contact-item">
+                    <h3>📞 Call Us</h3>
+                    <p>Phone: [Your Phone Number]<br>
+                    WhatsApp: [Your WhatsApp]<br>
+                    Open: 10 AM - 8 PM</p>
+                </div>
+                <div class="contact-item">
+                    <h3>✉️ Email Us</h3>
+                    <p>[Your Email]<br>
+                    For bulk orders & custom designs<br>
+                    Quick response guaranteed</p>
+                </div>
+            </div>
+            
+            <a href="tel:[Your-Phone]" class="btn">Call Now</a>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 R Pooja Bangles Store. All Rights Reserved.</p>
+        <p>Crafted with ❤️ for Bangle Lovers</p>
+    </footer>
+</body>
+</html>
